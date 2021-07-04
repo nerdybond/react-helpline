@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "react-helpline",
+    "slug": "react-helpline",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "react-helpline"
+}
