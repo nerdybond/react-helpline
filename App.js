@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { StyleSheet, Text, View, Button, Linking, ScrollView } from 'react-native';
-
-
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {NavigationContainer} from '@react-navigation/native';
 
 
 
@@ -11,37 +11,59 @@ export function callPhone() {
   //Linking.openURL('tel:+61415964238');
 }
 
+const Drawer = createDrawerNavigator();
+
+
+function HomeScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+     
+     <Text className = "HeaderTitle">MyHelpline</Text>
+
+<Text className = "HeaderText">Your friend anytime you need to call a helpline in Australia. Just top one of the buttons below to start!</Text>
+
+
+<Button className = "ButtonHome" onPress={() => {
+ navigation.navigate('Home') 
+// These will also be cards in a flat list.
+  }} title="Home" />
+<Button className = "ButtonNavDepression" onPress={() => { 
+  navigation.navigate('TwentyFourHour') 
+  }} title="Depression" />
+<Button className = "ButtonNavTrauma" onPress={() => {
+   navigation.navigate('TwentyFourHour')
+   }} title="Trauma" />
+<Button className = "ButtonNavMore" onPress={() => {
+   navigation.navigate('TwentyFourHour')
+   }} title="More Options" />
+
+    </View>
+  );
+}
+
+function TwentyFourHourScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+     <Text className = "HeaderTitle">MyHelpline</Text>
+
+     <Button className = "ButtonNav24Hour" onPress={() => {
+Linking.openURL(`tel:+61415964238s`)
+  }} title="24 Hour Helplines" />
+    </View>
+  );
+}
+
+
 export default function App() {
   return (
 
-    <View style={styles.container}>
-      <ScrollView>
-
-        <Text className = "HeaderTitle">MyHelpline</Text>
-
-        <Text className = "HeaderText">Your friend anytime you need to call a helpline in Australia. Just top one of the buttons below to start!</Text>
-
-
-        <Button className = "ButtonNav24Hour" onPress={() => {
-          //navigate to React Router page '24 hour helplines'
-          // These will also be cards in a flat list.
-          }} title="24 Hour Helplines" />
-        <Button className = "ButtonNavDepression" onPress={() => { 
-          console.log('you clicked me') 
-          }} title="Depression" />
-        <Button className = "ButtonNavTrauma" onPress={() => {
-           console.log('you clicked me') 
-           }} title="Trauma" />
-        <Button className = "ButtonNavMore" onPress={() => {
-           console.log('you clicked me') 
-           }} title="More Options" />
-        
-
-        <Text onPress={() => { callPhone }} style={styles.funcNavText}>Phone 6</Text>
-
-        <StatusBar style="auto" />
-      </ScrollView>
-    </View>
+      <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="TwentyFourHour" component={TwentyFourHourScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+    
   );
 }
 
