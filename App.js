@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
-import { StyleSheet, Text, View, Button, Linking } from 'react-native';
-import { ButtonGroup } from '@material-ui/core';
+import { StyleSheet, Text, View, Button, Linking, ScrollView } from 'react-native';
+
 
 
 
@@ -14,27 +14,33 @@ export function callPhone() {
 export default function App() {
   return (
 
-
-
     <View style={styles.container}>
+      <ScrollView>
 
-      <h1>HelpMeOut</h1>
-      <p>Your assistant anytime you need to call up an Australian Helpline.</p>
-      <p>Help is only a few taps away.</p>
+        <Text className = "HeaderTitle">MyHelpline</Text>
 
-      <ButtonGroup>      
-          <Button onPress={() => { console.log('you clicked me') }} title="Phone 1" />
-          <Button onPress={() => { console.log('you clicked me') }} title="Phone 2" />
-          <Button onPress={() => { console.log('you clicked me') }} title="Phone 3" />
-          <Button onPress={() => { console.log('you clicked me') }} title="Phone 4" />
-          <Button onPress={() => { console.log('you clicked me') }} title="Phone 5" />
-          <Button onPress={() => { console.log('you clicked me') }} title="Phone 6" />
-      </ButtonGroup>
+        <Text className = "HeaderText">Your friend anytime you need to call a helpline in Australia. Just top one of the buttons below to start!</Text>
 
 
-      <Text onPress={() => { callPhone }} style={styles.funcNavText}>Phone 6</Text>
+        <Button className = "ButtonNav24Hour" onPress={() => {
+          //navigate to React Router page '24 hour helplines'
+          // These will also be cards in a flat list.
+          }} title="24 Hour Helplines" />
+        <Button className = "ButtonNavDepression" onPress={() => { 
+          console.log('you clicked me') 
+          }} title="Depression" />
+        <Button className = "ButtonNavTrauma" onPress={() => {
+           console.log('you clicked me') 
+           }} title="Trauma" />
+        <Button className = "ButtonNavMore" onPress={() => {
+           console.log('you clicked me') 
+           }} title="More Options" />
+        
 
-      <StatusBar style="auto" />
+        <Text onPress={() => { callPhone }} style={styles.funcNavText}>Phone 6</Text>
+
+        <StatusBar style="auto" />
+      </ScrollView>
     </View>
   );
 }
@@ -52,8 +58,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#FFFF',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
+  Button: {
+
   },
 });
