@@ -7,5 +7,6 @@
       "**/*"
     ]
   },
-  "name": "react-helpline"
+  "name": "react-helpline",
+  "orientation": "portrait"
 }
