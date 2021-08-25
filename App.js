@@ -40,15 +40,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
-
   boxView:{
-    backgroundColor: "white",
+    backgroundColor: "green",
     width: '100%',
-    height: '60%',
-    paddingBottom: 10,
+    height: '70%',
     paddingHorizontal: 3,
     
   },
+  
   column: {
     flex: 1,
     flexDirection:"row",
@@ -101,20 +100,26 @@ function HomeScreen({ navigation }) {
 <View style = {styles.headerView}>     
 <Text style = {styles.heading}>MyHelpline</Text>
 <Text style = {styles.subheading}>Your friend anytime you need to call a helpline in Australia. Help is only a few taps away 😊 {"\n"}</Text>
-
 <Text style = {styles.subheading}>Need help getting started? Just tap one of the buttons below to find a Helpline, and talk with someone now.</Text>
-
-
 </View>
 
-<View style = {styles.boxView}>     
+
+<ScrollView
+alwaysBounceHorizontal={false}
+alwaysBounceVertical={true}
+scrollEnabled={true}
+showsVerticalScrollIndicator={false}
+overScrollMode= 'always'
+style = {styles.boxView}>     
 <View style={styles.column}> 
   
   <View style = {[styles.box, {backgroundColor: '#BB8CE5'}]}>
-  <Pressable onPress={() => {
+  <Pressable
+      style={({ pressed }) => [{ opacity: pressed ? 0.65 : 1 } ]}
+      onPress={() => {
         navigation.navigate('TwentyFourHour') }}
         onLongPress={() => {
-          {/*Alert.alert(
+          {/* Alert.alert(
             "Alert Title",
             "This is an alert!",
             [
@@ -141,8 +146,24 @@ function HomeScreen({ navigation }) {
   </View>
 
   <View style = {[styles.box, {backgroundColor: '#FD8C87'}]}>
-  <Pressable onPress={() => {
-        navigation.navigate('Trauma') }}>
+  <Pressable 
+      style={({ pressed }) => [{ opacity: pressed ? 0.65 : 1 } ]}
+      onPress={() => {
+        navigation.navigate('Trauma') }}
+        onLongPress={() => {
+          {/* Alert.alert(
+            "Alert Title",
+            "This is an alert!",
+            [
+              {
+                text: "Cancel",
+                onPress: () => console.log("Cancel Pressed"),
+                style: "cancel"
+              },
+              { text: "OK", onPress: () => console.log("OK Pressed") }
+            ]
+          );*/}
+        }}>
   <Text style={styles.boxHeaderText}>Family and Trauma</Text>
     <Text style={styles.boxMainText}>
       This is the new text box, hopefully wrapping correctly.
@@ -159,8 +180,30 @@ function HomeScreen({ navigation }) {
   <View style={styles.column}>
 
   <View style = {[styles.box, {backgroundColor: '#F7CA81'}]}>
-  <Pressable onPress={() => {
-        navigation.navigate('Depression and Anxiety') }}>
+  <Pressable
+        style={({ pressed }) => [{ opacity: pressed ? 0.65 : 1 } ]}
+        onPress={() => {
+        navigation.navigate('Depression and Anxiety') }}
+        onLongPress={() => {
+          {/* Alert.alert(
+            "Alert Title",
+            "This is an alert!",
+            [
+              {
+                text: "Cancel",
+                onPress: () => console.log("Cancel Pressed"),
+                style: "cancel"
+              },
+              { text: "OK", onPress: () => console.log("OK Pressed") }
+            ]
+          );*/}
+        }
+      
+      }
+        
+        
+        
+        >
   <Text style={styles.boxHeaderText}>Anxiety and Depression</Text>
     <Text style={styles.boxMainText}>
       This is the new text box, hopefully wrapping correctly.
@@ -174,8 +217,24 @@ function HomeScreen({ navigation }) {
   </View>
 
   <View style = {[styles.box, {backgroundColor: '#6ce66c'}]}>
-  <Pressable onPress={() => {
-        navigation.navigate('Crisis') }}>
+  <Pressable 
+    style={({ pressed }) => [{ opacity: pressed ? 0.65 : 1 } ]}
+    onPress={() => {
+        navigation.navigate('Crisis') }}
+        onLongPress={() => {
+          {/* Alert.alert(
+            "Alert Title",
+            "This is an alert!",
+            [
+              {
+                text: "Cancel",
+                onPress: () => console.log("Cancel Pressed"),
+                style: "cancel"
+              },
+              { text: "OK", onPress: () => console.log("OK Pressed") }
+            ]
+          );*/}
+        }}>
   <Text style={styles.boxHeaderText}>Crisis Support</Text>
     <Text style={styles.boxMainText}>
       This is the new text box, hopefully wrapping correctly.
@@ -187,9 +246,10 @@ function HomeScreen({ navigation }) {
       />
   </Pressable>
   </View>
+  
   </View>
 
-</View>
+</ScrollView>
 </View>
 );
 }
