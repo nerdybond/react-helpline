@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
-import { TouchableOpacity, StyleSheet, Text, View, Linking, ScrollView, Pressable, SafeAreaView, Image } from 'react-native';
+import { StyleSheet, Text, View, Linking, ScrollView, Pressable, SafeAreaView, Image } from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import Constants from 'expo-constants';
@@ -12,20 +12,20 @@ const styles = StyleSheet.create({
   container: {
     marginTop: statusBarHeight,
     flex: 1,
-    backgroundColor: "pink",
+    backgroundColor: "white",
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
   headerView:{
-    backgroundColor: "white",
+    backgroundColor: 'rgba(52, 52, 52, 0.0)',
     width: '100%',
     height: '40%',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-evenly',
     paddingTop: 10,
   },
   heading:{
-    fontSize: 50,
+    fontSize: 60,
     textAlign: 'center',
     textDecorationLine: 'underline',
     textShadowRadius: 1,
@@ -35,23 +35,23 @@ const styles = StyleSheet.create({
   },
   subheading:{
     fontSize: 17,
-    paddingVertical: 6,
+    paddingVertical: 2 ,
     paddingHorizontal: 3,
     textAlign: 'center',
   },
 
   boxView:{
-    backgroundColor: "green",
+    backgroundColor: 'rgba(52, 52, 52, 0.0)',
     width: '100%',
-    height: '70%',
     paddingHorizontal: 3,
-    
+    paddingTop: '10%',
+    paddingVertical: '5%',
   },
   
   column: {
     flex: 1,
     flexDirection:"row",
-    backgroundColor: "white",
+    backgroundColor: 'rgba(52, 52, 52, 0.0)',
   },
 
   box:{
@@ -99,7 +99,7 @@ function HomeScreen({ navigation }) {
 <View style={styles.container}>
 <View style = {styles.headerView}>     
 <Text style = {styles.heading}>MyHelpline</Text>
-<Text style = {styles.subheading}>Your friend anytime you need to call a helpline in Australia. Help is only a few taps away 😊 {"\n"}</Text>
+<Text style = {styles.subheading}>Your friend anytime you need to call a helpline in Australia. Help is only a few taps away 😊 </Text>
 <Text style = {styles.subheading}>Need help getting started? Just tap one of the buttons below to find a Helpline, and talk with someone now.</Text>
 </View>
 
